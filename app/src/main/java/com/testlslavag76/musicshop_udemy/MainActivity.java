@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -27,6 +28,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        createSpinner();
+        createMap();
+    }
+
+    private void createMap() {
+        goodsMap = new HashMap();
+        goodsMap.put("guitar", 500.0);
+        goodsMap.put("drums", 1500.0);
+        goodsMap.put("keyboard", 1000.0);
+    }
+
+    private void createSpinner() {
         spiner = findViewById(R.id.spinner);
         spiner.setOnItemSelectedListener(this);
         spinnerArrayList = new ArrayList();
@@ -38,11 +51,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinnerAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerArrayList);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spiner.setAdapter(spinnerAdapter);
-
-        goodsMap = new HashMap();
-        goodsMap.put("guitar", 500.0);
-        goodsMap.put("drums", 1500.0);
-        goodsMap.put("keyboard", 1000.0);
     }
 
     public void increaseQuantity(View view) {
@@ -70,6 +78,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         TextView priceTextView = findViewById(R.id.priceTextView);
         priceTextView.setText("" + quantity * price);
 
+        ImageView goodsImageView = findViewById(R.id.goodsImageView);
+
+        switch (goodsName) {
+            case "guitar":
+                goodsImageView.setImageResource(R.drawable.guitar);
+                break;
+            case "drums":
+                goodsImageView.setImageResource(R.drawable.drums);
+                break;
+            case "keyboard":
+                goodsImageView.setImageResource(R.drawable.keyboard);
+                break;
+            default:
+                goodsImageView.setImageResource(R.drawable.guitar);
+                break;
+        }
     }
 
     @Override

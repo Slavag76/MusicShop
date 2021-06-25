@@ -53,6 +53,7 @@
         android:layout_height="wrap_content" />
 
     <ImageView
+        android:id="@+id/goodsImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
@@ -115,9 +116,9 @@
             android:layout_width="40dp"
             android:layout_height="50dp"
             android:layout_below="@id/quantityTitleTextView"
-            android:layout_marginStart="160dp"
+            android:layout_marginStart="232dp"
             android:layout_marginTop="13dp"
-            android:layout_toRightOf="@id/currencyTextView"
+            android:layout_alignParentStart="true"
             android:text="-"
             android:textColor="@android:color/white" />
 
