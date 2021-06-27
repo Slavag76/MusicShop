@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_tvNumber">42sp</dimen>
+    <dimen name="tvpadding">16dp</dimen>
+    <dimen name="tv_padding">16dp</dimen>
+</resources>
